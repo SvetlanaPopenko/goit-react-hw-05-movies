@@ -1,4 +1,4 @@
-import axios, { spread } from 'axios';
+import axios from 'axios';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 const API_KEY = 'f983fc840eb543faba07dcbe6db19b0b';
