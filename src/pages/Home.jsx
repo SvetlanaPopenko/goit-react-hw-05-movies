@@ -2,13 +2,14 @@ import { Loader } from 'components/Loader/Loader';
 import { useEffect, useState } from 'react';
 import { getTrendingMovie } from 'components/API/FetchApi';
 import { Title } from 'components/Title/Title';
-import { MovieGalleryItem } from 'components/MovieGalleryItem/MovieGalleryItem';
+import { MoviesGallery } from 'components/MoviesGallery/MoviesGallery';
+import { Button } from 'components/Button/Button';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const [totalPage, setTotalPage] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
 
   const onLoad = () => {
     setPage(prevPage => prevPage + 1);
@@ -22,15 +23,16 @@ const Home = () => {
         const data = await getTrendingMovie(page, {
           signal: controller.signal,
         });
-          console.log(data);
-        setTotalPage(data.total_pages);
+        setTotalPages(data.total_pages);
         setMovies(prevMovies => {
           return page === 1 ? data.results : [...prevMovies, ...data.results];
         });
+console.log(data.results);
         return data.results;
+        
       } catch (error) {
         setMovies([]);
-        console.log(error);
+        console.log(error.message);
       } finally {
         setIsLoading(false);
       }
@@ -45,13 +47,8 @@ const Home = () => {
     return (
       <main>
         <Title>Trending movies</Title>
-        <div>
-          {!!movies.length &&
-            movies.map(movie => (
-              <MovieGalleryItem key={movie.id} movie={movie}></MovieGalleryItem>
-            ))}
-            </div>
-            {!!movies.length&& page<totalPage&& (<button type='button' onClick={onLoad}>More</button>)}
+        <div>{!!movies.length && <MoviesGallery movies={movies} />}</div>
+        {!!movies.length && page <= totalPages && <Button onClick={onLoad} />}
         {isLoading && <Loader />}
       </main>
     );
