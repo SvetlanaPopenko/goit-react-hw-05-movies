@@ -1,5 +1,4 @@
-import { useLocation, useParams } from 'react-router-dom';
-import { Link, Outlet } from 'react-router-dom';
+import { useLocation, useParams, Link, Outlet } from 'react-router-dom';
 import { BackLink } from 'components/BackLink';
 import { useEffect, useRef, useState, Suspense } from 'react';
 import { getMovieDetails } from 'components/API/FetchApi';
@@ -10,7 +9,7 @@ const MovieDetails = () => {
   const [movieDetail, setMovieDetail] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { movieId } = useParams();
-  const { location } = useLocation();
+  const location  = useLocation();
   const ref = useRef(location.state?.from ?? '/movies');
 
   useEffect(() => {
@@ -57,7 +56,7 @@ const MovieDetails = () => {
             </li>
           </ul>
         </div>
-        <Suspense fallback={<Loader/>}>
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </div>
