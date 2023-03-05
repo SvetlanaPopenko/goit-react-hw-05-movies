@@ -1,13 +1,14 @@
 import { useLocation } from 'react-router-dom';
-import { StyledLink } from './MovieGalleryItem.styled';
+import { MovieContainer, StyledLink } from './MovieGalleryItem.styled';
 import PropTypes from 'prop-types';
+
 
 export const MovieGalleryItem = ({
   movie: { title, name, poster_path, release_date, id },
 }) => {
   const location = useLocation();
   return (
-    <div>
+    <MovieContainer>
       <StyledLink to={`movies/${id}`} state={{ from: location }}>
         <div>
           <div>
@@ -26,7 +27,7 @@ export const MovieGalleryItem = ({
           </div>
         </div>
       </StyledLink>
-    </div>
+    </MovieContainer>
   );
 };
 
