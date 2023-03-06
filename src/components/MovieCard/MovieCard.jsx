@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 export const MovieCard = ({
-  card: {
+  data: {
     title,
     name,
     poster_path,
@@ -46,7 +46,7 @@ export const MovieCard = ({
 };
 
 MovieCard.propTypes = {
-  card: PropTypes.shape({
+  data: PropTypes.shape({
     title: PropTypes.string,
     name: PropTypes.string,
     poster_path: PropTypes.string,
