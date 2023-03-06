@@ -27,12 +27,11 @@ const Home = () => {
         setMovies(prevMovies => {
           return page === 1 ? data.results : [...prevMovies, ...data.results];
         });
-console.log(data.results);
         return data.results;
         
       } catch (error) {
         setMovies([]);
-        console.log(error.message);
+        console.log(error);
       } finally {
         setIsLoading(false);
       }
@@ -48,7 +47,7 @@ console.log(data.results);
       <main>
         <Title>Trending movies</Title>
         <div>{!!movies.length && <MoviesGallery movies={movies} />}</div>
-        {!!movies.length && page <= totalPages && <Button onClick={onLoad} />}
+        {!!movies.length && page <= totalPages && (<Button onClick={onLoad} />)}
         {isLoading && <Loader />}
       </main>
     );
