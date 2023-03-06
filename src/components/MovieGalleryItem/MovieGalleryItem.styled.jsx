@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const StyledLink = styled(NavLink)`
   padding: 8px 16px;
@@ -10,11 +10,47 @@ export const StyledLink = styled(NavLink)`
 
   &.active {
     color: white;
-    background-color: orangered}
-    `;
-export const MovieContainer=styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-`
+    background-color: orangered;
+  }
+`;
+export const MovieContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+export const MovieItem = styled.div`
+  display: block;
+  border: 1px solid black;
+  border-radius: 4px;
+   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  :hover {
+    box-shadow: 2px 3px 5px #c7fc07, -1px -3px 5px #0f70de;
+    transform: scale(1.05);
+    cursor: zoom-in;
+    border: none;
+    }
+`;
+export const MovieImage = styled.img`
+  width: 100%;
+  object-fit: cover;
+  height:600px;
+`;
+
+export const CardWrapper = styled.div`
+  border: 1px solid black;
+  border-radius: 4px;
+
+  > a {
+    text-decoration: none;
+  }
+`;
+
+export const MovieName = styled.h2`
+font-size:26px;
+  padding: 4px;
+  margin-top: 8px;
+  margin-bottom: 0;
+  color: black;
+`;
