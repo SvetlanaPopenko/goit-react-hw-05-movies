@@ -1,13 +1,14 @@
 import { MovieGalleryItem } from 'components/MovieGalleryItem/MovieGalleryItem';
 import PropTypes from 'prop-types';
+import { MovieGalleryList } from './MoviesGallery.styled';
 
 export const MoviesGallery = ({ movies }) => {
   return (
-    <ul>
+    <MovieGalleryList>
       {movies.map(movie => (
-        <MovieGalleryItem key={movie.id} movie={movie}/>
+        <MovieGalleryItem key={movie.id} movie={movie} />
       ))}
-    </ul>
+    </MovieGalleryList>
   );
 };
 
