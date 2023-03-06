@@ -17,21 +17,24 @@ const Movies = () => {
 
   useEffect(() => {
     const controller = new AbortController();
-    setIsLoading(true);
-    const getMovieBySearch = async (query, page) => {
-      try {
+       const getMovieBySearch = async (query, page) => {
+           try {
+               if (!movieName||!query) {
+          return;
+        }
+           setIsLoading(true);
         const data = await fetchSearchMovie(query, page, {
           signal: controller.signal,
         });
 
-        if (!data.results) {
-          return;
-        }
+        
         setTotalPages(data.total_pages);
         setMovies(prevMovies => {
           return page === 1 ? data.results : [...prevMovies, ...data.results];
         });
-        return data;
+               console.log(data.results);
+               return data;
+               
       } catch (error) {
         setMovies([]);
         console.log(error);
@@ -39,14 +42,12 @@ const Movies = () => {
         setIsLoading(false);
       }
     };
-    if (!searchQuery) {
-      return;
-    }
-    getMovieBySearch(searchQuery, page);
+    
+    getMovieBySearch(movieName, page);
     return () => {
       controller.abort();
     };
-  }, [searchQuery, page]);
+  }, [movieName, page]);
 
   const handleOnSearch = query => {
     if (query === '' || query === searchQuery) {
