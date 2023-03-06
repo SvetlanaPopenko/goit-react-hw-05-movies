@@ -1,7 +1,6 @@
 import { useLocation } from 'react-router-dom';
-import { MovieContainer, StyledLink } from './MovieGalleryItem.styled';
+import { MovieContainer, StyledLink, MovieItem, MovieImage, MovieName } from './MovieGalleryItem.styled';
 import PropTypes from 'prop-types';
-
 
 export const MovieGalleryItem = ({
   movie: { title, name, poster_path, release_date, id },
@@ -9,23 +8,19 @@ export const MovieGalleryItem = ({
   const location = useLocation();
   return (
     <MovieContainer>
-      <StyledLink to={`movies/${id}`} state={{ from: location }}>
-        <div>
+      <StyledLink to={`/movies/${id}`} state={{ from: location }}>
+        <MovieItem>
+          <MovieImage
+            src={
+              poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : ''
+            }
+            alt={title || name}
+          />
           <div>
-            <img
-              src={
-                poster_path
-                  ? `https://image.tmdb.org/t/p/w500${poster_path}`
-                  : ''
-              }
-              alt={title || name}
-            />
+            <MovieName>{title || name}</MovieName>
+            <p>Release data : {release_date?.slice(0, 4) || 'not found'}</p>
           </div>
-          <div>
-            <h2>{title || name}</h2>
-                      <p>Release data : { release_date?.slice(0, 4) || 'not found'}</p>
-          </div>
-        </div>
+        </MovieItem>
       </StyledLink>
     </MovieContainer>
   );
