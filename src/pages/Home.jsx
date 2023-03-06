@@ -31,7 +31,7 @@ const Home = () => {
         
       } catch (error) {
         setMovies([]);
-        console.log(error);
+        console.log(error.message);
       } finally {
         setIsLoading(false);
       }
