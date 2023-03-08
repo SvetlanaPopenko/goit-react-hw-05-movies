@@ -6,6 +6,7 @@ import {
   SearchFormInput,
 } from './SearchBar.styled';
 import { BsSearch } from 'react-icons/bs';
+import PropTypes from 'prop-types';
 
 export const SearchBar = ({ onSubmit }) => {
   const handleSubmit = evt => {
@@ -33,3 +34,6 @@ export const SearchBar = ({ onSubmit }) => {
   );
 };
 
+SearchBar.propTypes = {
+  onsubmit:PropTypes.func,
+}
