@@ -50,9 +50,9 @@ const MovieDetails = () => {
               </Link>
             </li>
             <li>
-              <link to="reviews" state={{ from: location }}>
+              <Link to="reviews" state={{ from: location }}>
                 Reviews
-              </link>
+              </Link>
             </li>
           </ul>
         </div>
