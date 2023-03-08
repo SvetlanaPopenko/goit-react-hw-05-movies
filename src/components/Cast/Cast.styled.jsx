@@ -6,4 +6,9 @@ export const CastList = styled.ul`
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
+   margin: 0 auto;
+  
+  padding: 0;
+  list-style: none;
+  
 `;
