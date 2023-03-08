@@ -15,4 +15,5 @@ export const ReviewTitle = styled.h3`
 `;
 export const ReviewContent = styled.p`
   font-size: 20px;
+   color: #614c02;
 `;
