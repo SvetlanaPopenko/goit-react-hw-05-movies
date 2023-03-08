@@ -4,6 +4,7 @@ import { ReviewsItem } from 'components/ReviewsItem/ReviewsItem';
 import { Section } from 'components/Section/Section';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { ReviewError } from './Reviews.styled';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -40,7 +41,7 @@ const Reviews = () => {
         ))}
       </ul>
       {isLoading && <Loader />}
-      {!!reviews.length || <p>We don`t have reviews for this movie</p>}
+      {!!reviews.length || <ReviewError>We don`t have reviews for this movie</ReviewError>}
     </Section>
   );
 };
