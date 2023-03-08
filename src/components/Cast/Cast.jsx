@@ -1,27 +1,28 @@
-import { getMovieCredits } from "components/API/FetchApi";
-import { CastItem } from "components/CastItem/CastItem";
-import { Loader } from "components/Loader/Loader";
-import { Title } from "components/Title/Title";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { getMovieCredits } from 'components/API/FetchApi';
+import { CastItem } from 'components/CastItem/CastItem';
+import { Loader } from 'components/Loader/Loader';
+import { Section } from 'components/Section/Section';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { CastList } from './Cast.styled';
 
 const Cast = () => {
-    const [isLoading, setIsLoading] = useState(false);
-    const [movieCasts, setMovieCasts] = useState([]);
-    const { movieId } = useParams();
+  const [isLoading, setIsLoading] = useState(false);
+  const [casts, setCasts] = useState([]);
+  const { movieId } = useParams();
 
-    useEffect(() => {
-        const controller = new AbortController();
-        setIsLoading(true);
-        const fetchMovieCast = async movieId => {
+  useEffect(() => {
+    const controller = new AbortController();
+    setIsLoading(true);
+    const fetchMovieCast = async movieId => {
       try {
         const data = await getMovieCredits(movieId, {
           signal: controller.signal,
         });
-          setMovieCasts(data.cast);
-            return data;
-              } catch (error) {
-                console.log(error);
+        setCasts(data.cast);
+        return data;
+      } catch (error) {
+        console.log(error);
       } finally {
         setIsLoading(false);
       }
@@ -32,14 +33,16 @@ const Cast = () => {
     };
   }, [movieId]);
 
-    
-    return (<main>
-        <Title>Cast</Title>
-        <ul>
-            {movieCasts.map(movieCast => (<CastItem key={movieCast.id} movieCast={movieCast} />))}
-            {isLoading && <Loader/>}
-        </ul>
-    </main>)
+  return (
+    <Section title={'Cast'}>
+      <CastList>
+        {casts.map(cast => (
+          <CastItem key={cast.id} cast={cast} />
+        ))}
+      </CastList>
+      {isLoading && <Loader />}
+    </Section>
+  );
 };
 
 export default Cast;
