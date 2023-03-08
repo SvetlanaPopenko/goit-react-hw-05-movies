@@ -28,7 +28,6 @@ const Home = () => {
           return page === 1 ? data.results : [...prevMovies, ...data.results];
         });
         return data.results;
-        
       } catch (error) {
         setMovies([]);
         console.log(error.message);
@@ -45,8 +44,9 @@ const Home = () => {
   if (movies) {
     return (
       <main>
-        <Section>Trending movies</Section>
-        <div>{!!movies.length && <MoviesGallery movies={movies} />}</div>
+        <Section title="Trending movies">
+          <div>{!!movies.length && <MoviesGallery movies={movies} />}</div>
+        </Section>
         {!!movies.length && page <= totalPages && (<Button onClick={onLoad} />)}
         {isLoading && <Loader />}
       </main>
