@@ -1,7 +1,7 @@
 import { Loader } from 'components/Loader/Loader';
 import { useEffect, useState } from 'react';
 import { getTrendingMovie } from 'components/API/FetchApi';
-import { Title } from 'components/Title/Title';
+import { Section } from 'components/Section/Section';
 import { MoviesGallery } from 'components/MoviesGallery/MoviesGallery';
 import { Button } from 'components/Button/Button';
 
@@ -45,7 +45,7 @@ const Home = () => {
   if (movies) {
     return (
       <main>
-        <Title>Trending movies</Title>
+        <Section>Trending movies</Section>
         <div>{!!movies.length && <MoviesGallery movies={movies} />}</div>
         {!!movies.length && page <= totalPages && (<Button onClick={onLoad} />)}
         {isLoading && <Loader />}
