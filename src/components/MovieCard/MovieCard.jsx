@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import film from '../../images/film.jfif'
 
 export const MovieCard = ({
   data: {
@@ -16,7 +17,7 @@ export const MovieCard = ({
       <div>
         <img
           src={
-            poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : ''
+            poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : film
           }
           alt={title || name}
         />
