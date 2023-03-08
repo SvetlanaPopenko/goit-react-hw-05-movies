@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import placeholder from '../../images/placeholder.png'
-import { CastImage } from './CastItem.styled';
+import placeholder from '../../images/placeholder.jpg'
+import { CastDesc, CastGalleryItemWrp, CastImage,CastTitle } from './CastItem.styled';
 
 export const CastItem = ({ cast: { name, character, profile_path }, }) => {
   return (
-    <li>
+    <CastGalleryItemWrp>
       <CastImage
         src={
           profile_path ? `https://image.tmdb.org/t/p/w500${profile_path}` : placeholder
@@ -12,10 +12,10 @@ export const CastItem = ({ cast: { name, character, profile_path }, }) => {
         alt={name}
       />
       <div>
-        <h2>{name}</h2>
-        <p>Character: {character || 'No name'}</p>
+        <CastTitle>{name}</CastTitle>
+        <CastDesc>Character: {character || 'No name'}</CastDesc>
       </div>
-    </li>
+    </CastGalleryItemWrp>
   );
 };
 
