@@ -1,6 +1,6 @@
 import { RotatingLines } from 'react-loader-spinner';
 import { createPortal } from 'react-dom';
-import { Loading } from './Loader.styled'
+import { Loading } from './Loader.styled';
 
 const Spiner = document.querySelector('#loader');
 
