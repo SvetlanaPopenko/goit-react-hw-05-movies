@@ -8,7 +8,12 @@ export const CastList = styled.ul`
   gap: 20px;
    margin: 0 auto;
   
-  padding: 0;
+  padding: 10px 0;
   list-style: none;
   
+`;
+
+export const CastError = styled.p`
+  font-size: 20px;
+  color: #614c02;
 `;

@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { MovieContainer, StyledLink, MovieItem, MovieImage, MovieName } from './MovieGalleryItem.styled';
 import PropTypes from 'prop-types';
+import film from '../../images/film.jfif';
 
 export const MovieGalleryItem = ({
   movie: { title, name, poster_path, release_date, id },
@@ -12,7 +13,7 @@ export const MovieGalleryItem = ({
         <MovieItem>
           <MovieImage
             src={
-              poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : ''
+              poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : film
             }
             alt={title || name}
           />

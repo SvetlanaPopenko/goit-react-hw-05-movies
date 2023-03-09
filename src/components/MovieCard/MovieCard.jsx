@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import film from '../../images/film.jfif'
+import film from '../../images/film.jfif';
+import { MovieContainer, MovieImage, MovieTitle, MovieDesc, MovieSpan } from './MovieCard.styled';
 
 export const MovieCard = ({
   data: {
@@ -13,9 +14,9 @@ export const MovieCard = ({
   },
 }) => {
   return (
-    <div>
+    <MovieContainer>
       <div>
-        <img
+        <MovieImage
           src={
             poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : film
           }
@@ -23,26 +24,26 @@ export const MovieCard = ({
         />
       </div>
       <div>
-        <h2>{title || name}</h2>
-        <p>Release data : { release_date?.slice(0, 4) || 'not found'}</p>
-        <p>
-          User score:<span>{(vote_average * 10).toFixed(1)}%</span>
-        </p>
-        <p>
-          Overview:<span>{overview}</span>
-        </p>
-        <p>
-          Genres:
-          <span>
+        <MovieTitle>{title || name}</MovieTitle>
+        <MovieDesc>Release data : { release_date?.slice(0, 4) || 'not found'}</MovieDesc>
+        <MovieDesc>
+          User score :<MovieSpan>{(vote_average * 10).toFixed(1)}%</MovieSpan>
+        </MovieDesc>
+        <MovieDesc>
+          Overview :<MovieSpan>{overview}</MovieSpan>
+        </MovieDesc>
+        <MovieDesc>
+          Genres :
+          <MovieSpan>
             {genres
               .map(genre => {
                 return genre.name;
               })
               .join(', ')}
-          </span>
-        </p>
+          </MovieSpan>
+        </MovieDesc>
       </div>
-    </div>
+    </MovieContainer>
   );
 };
 

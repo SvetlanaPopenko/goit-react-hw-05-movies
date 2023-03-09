@@ -18,12 +18,13 @@ export const CastImage = styled.img`
   }
 `;
 export const CastDesc = styled.p`
-  font-size: 18px;
+  font-size: 24px;
   padding: 10px;
   color: #614c02;
   text-align: center;
 `;
 export const CastTitle = styled.h2`
+font-size:26px;
   padding: 10px;
   color: #cb861e;
   text-align: center;

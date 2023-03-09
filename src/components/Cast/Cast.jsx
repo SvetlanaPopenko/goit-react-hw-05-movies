@@ -4,7 +4,7 @@ import { Loader } from 'components/Loader/Loader';
 import { Section } from 'components/Section/Section';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { CastList } from './Cast.styled';
+import { CastList,CastError } from './Cast.styled';
 
 const Cast = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -41,6 +41,7 @@ const Cast = () => {
         ))}
       </CastList>
       {isLoading && <Loader />}
+      <CastError>We don`t have cast for this movie</CastError>
     </Section>
   );
 };

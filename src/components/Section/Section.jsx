@@ -1,13 +1,14 @@
+import { Container } from 'components/SharedLayout/SharedLayout.styled';
 import PropTypes from 'prop-types';
 import { SectionMain, Title } from './Section.styled';
 
 export const Section = ({ title, children }) => {
   return (
     <SectionMain>
-      <div>
+      <Container>
         <Title>{title}</Title>
         {children}
-      </div>
+      </Container>
     </SectionMain>
   );
 };

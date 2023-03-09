@@ -3,8 +3,10 @@ import { Button } from 'components/Button/Button';
 import { Loader } from 'components/Loader/Loader';
 import { MoviesGallery } from 'components/MoviesGallery/MoviesGallery';
 import { SearchBar } from 'components/SearchBar/SearchBar';
+import { Section } from 'components/Section/Section';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -17,24 +19,22 @@ const Movies = () => {
 
   useEffect(() => {
     const controller = new AbortController();
-       const getMovieBySearch = async (query, page) => {
-           try {
-               if (!movieName||!query) {
+    const getMovieBySearch = async (query, page) => {
+      try {
+        if (!movieName || !query) {
           return;
         }
-           setIsLoading(true);
+        setIsLoading(true);
         const data = await fetchSearchMovie(query, page, {
           signal: controller.signal,
         });
 
-        
         setTotalPages(data.total_pages);
         setMovies(prevMovies => {
           return page === 1 ? data.results : [...prevMovies, ...data.results];
         });
-               console.log(data.results);
-               return data;
-               
+        console.log(data.results);
+        return data;
       } catch (error) {
         setMovies([]);
         console.log(error);
@@ -42,7 +42,7 @@ const Movies = () => {
         setIsLoading(false);
       }
     };
-    
+
     getMovieBySearch(movieName, page);
     return () => {
       controller.abort();
@@ -63,20 +63,35 @@ const Movies = () => {
   const onLoad = () => {
     setPage(prevPage => prevPage + 1);
   };
-    if (movies) {
-        return (
-            <main>
-                <SearchBar movieName={movieName} onSubmit={handleOnSearch} />
-                <div>
-                    <MoviesGallery movies={movies} />
-                </div>
-                {isLoading && <Loader />}
-                {!!movies.length && page < totalPages && (
-                    <Button onClick={onLoad}/>
-                                        )}
-            </main>
-        );
-    }
+  if (movies) {
+    return (
+      <main>
+        <SearchBar movieName={movieName} onSubmit={handleOnSearch} />
+        <Section>
+          <MoviesGallery movies={movies} />
+        </Section>
+        {isLoading && <Loader />}
+        {!!movies.length && page < totalPages && <Button onClick={onLoad} />}
+      </main>
+    );
+  }
+};
+
+
+Movies.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      title: PropTypes.string,
+      release_date: PropTypes.string,
+      poster_path: PropTypes.string,
+    })
+  ),
+  searchQuery:PropTypes.string,
+  page: PropTypes.number,
+  isLoadoing: PropTypes.bool,
+  totalPages:PropTypes.number,
 };
 
 export default Movies;

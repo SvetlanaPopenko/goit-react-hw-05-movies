@@ -4,7 +4,8 @@ import { ReviewsItem } from 'components/ReviewsItem/ReviewsItem';
 import { Section } from 'components/Section/Section';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { ReviewError } from './Reviews.styled';
+import { ReviewError, ReviewsList } from './Reviews.styled';
+import PropTypes from 'prop-types';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -35,15 +36,27 @@ const Reviews = () => {
 
   return (
     <Section title="Reviews">
-      <ul>
+      <ReviewsList>
         {reviews.map(review => (
           <ReviewsItem key={review.id} review={review} />
         ))}
-      </ul>
+      </ReviewsList>
       {isLoading && <Loader />}
-      {!!reviews.length || <ReviewError>We don`t have reviews for this movie</ReviewError>}
+      {!!reviews.length || (
+        <ReviewError>We don`t have reviews for this movie</ReviewError>
+      )}
     </Section>
   );
+};
+
+Reviews.propTypes = {
+  isLoading: PropTypes.bool,
+  reviews: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      author: PropTypes.string,
+    })
+  ),
 };
 
 export default Reviews;

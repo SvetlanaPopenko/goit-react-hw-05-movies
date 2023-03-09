@@ -1,9 +1,12 @@
-import { useLocation, useParams, Link, Outlet } from 'react-router-dom';
+import { useLocation, useParams, Outlet } from 'react-router-dom';
 import { BackLink } from 'components/BackLink';
 import { useEffect, useRef, useState, Suspense } from 'react';
 import { getMovieDetails } from 'components/API/FetchApi';
 import { MovieCard } from 'components/MovieCard/MovieCard';
 import { Loader } from 'components/Loader/Loader';
+import PropTypes from 'prop-types';
+import { Container } from 'components/SharedLayout/SharedLayout.styled';
+import { LinkList,Link } from 'components/MovieCard/MovieCard.styled';
 
 const MovieDetails = () => {
   const [movieDetail, setMovieDetail] = useState(null);
@@ -23,7 +26,7 @@ const MovieDetails = () => {
         setMovieDetail(data);
         return data;
       } catch (error) {
-        console.log(error);
+        console.log(error.message);
       } finally {
         setIsLoading(false);
       }
@@ -36,14 +39,14 @@ const MovieDetails = () => {
 
   if (movieDetail) {
     return (
-      <div>
-        <div>
+      <>
+        <Container>
           <BackLink to={ref.current}>Back</BackLink>
           {movieDetail && <MovieCard data={movieDetail} />}
-        </div>
+        </Container>
         {isLoading && <Loader />}
-        <div>
-          <ul>
+        <Container>
+          <LinkList>
             <li>
               <Link to="cast" state={{ from: location }}>
                 Cast
@@ -54,14 +57,19 @@ const MovieDetails = () => {
                 Reviews
               </Link>
             </li>
-          </ul>
-        </div>
+          </LinkList>
+        </Container>
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
-      </div>
+      </>
     );
   }
+};
+
+MovieDetails.propTypes = {
+  movieDetail: PropTypes.object,
+  isLoadoing: PropTypes.bool,
 };
 
 export default MovieDetails;
