@@ -62,6 +62,7 @@ export const MovieRelease = styled.p`
   padding: 10px;
   color: #614c02;
   font-weight: 600;
+  margin: 0;
 `;
 export const MovieInfo = styled.div`
   /* padding:10px; */
