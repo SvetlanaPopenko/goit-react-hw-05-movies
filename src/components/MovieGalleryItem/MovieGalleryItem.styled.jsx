@@ -23,7 +23,7 @@ export const MovieItem = styled.div`
   border: 1px solid black;
   border-radius: 4px;
   width: 360px;
-   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   :hover {
@@ -31,13 +31,12 @@ export const MovieItem = styled.div`
     transform: scale(1.05);
     cursor: zoom-in;
     border: none;
-     
-    }
+  }
 `;
 export const MovieImage = styled.img`
   width: 100%;
   object-fit: cover;
- height: 540px;
+  height: 540px;
 `;
 
 export const CardWrapper = styled.div`
@@ -50,21 +49,20 @@ export const CardWrapper = styled.div`
 `;
 
 export const MovieName = styled.h2`
-font-size:26px;
+  font-size: 26px;
   padding: 7px;
   margin-top: 8px;
   margin-bottom: 0;
- color: #cb861e;
-height: 80px;
-white-space: pre-wrap;
-
+  color: #cb861e;
+  height: 60px;
+  white-space: pre-wrap;
 `;
- export const MovieRelease= styled.p`
-  font-size: 28px;
+export const MovieRelease = styled.p`
+  font-size: 26px;
   padding: 10px;
   color: #614c02;
-  font-weight:700;
- `
-export const MovieInfo=styled.div`
-  padding:10px;
-`
+  font-weight: 600;
+`;
+export const MovieInfo = styled.div`
+  /* padding:10px; */
+`;

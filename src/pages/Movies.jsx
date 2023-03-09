@@ -77,7 +77,6 @@ const Movies = () => {
   }
 };
 
-
 Movies.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.shape({
@@ -88,10 +87,10 @@ Movies.propTypes = {
       poster_path: PropTypes.string,
     })
   ),
-  searchQuery:PropTypes.string,
+  searchQuery: PropTypes.string,
   page: PropTypes.number,
   isLoadoing: PropTypes.bool,
-  totalPages:PropTypes.number,
+  totalPages: PropTypes.number,
 };
 
 export default Movies;

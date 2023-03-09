@@ -35,5 +35,5 @@ export const SearchBar = ({ onSubmit }) => {
 };
 
 SearchBar.propTypes = {
-  onsubmit:PropTypes.func,
-}
+  onsubmit: PropTypes.func,
+};

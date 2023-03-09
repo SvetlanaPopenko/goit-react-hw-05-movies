@@ -1,5 +1,13 @@
 import { useLocation } from 'react-router-dom';
-import { MovieContainer, StyledLink, MovieItem, MovieImage, MovieName, MovieRelease, MovieInfo } from './MovieGalleryItem.styled';
+import {
+  MovieContainer,
+  StyledLink,
+  MovieItem,
+  MovieImage,
+  MovieName,
+  MovieRelease,
+  MovieInfo,
+} from './MovieGalleryItem.styled';
 import PropTypes from 'prop-types';
 import film from '../../images/film.jpg';
 
@@ -13,13 +21,17 @@ export const MovieGalleryItem = ({
         <MovieItem>
           <MovieImage
             src={
-              poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : film
+              poster_path
+                ? `https://image.tmdb.org/t/p/w500${poster_path}`
+                : film
             }
             alt={title || name}
           />
           <MovieInfo>
             <MovieName>{title || name}</MovieName>
-            <MovieRelease>Release data : {release_date?.slice(0, 4) || 'not found'}</MovieRelease>
+            <MovieRelease>
+              Release data : {release_date?.slice(0, 4) || 'not found'}
+            </MovieRelease>
           </MovieInfo>
         </MovieItem>
       </StyledLink>

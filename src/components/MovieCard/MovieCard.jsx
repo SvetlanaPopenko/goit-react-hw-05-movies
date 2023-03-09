@@ -1,6 +1,12 @@
 import PropTypes from 'prop-types';
 import film from '../../images/film.jfif';
-import { MovieContainer, MovieImage, MovieTitle, MovieDesc, MovieSpan } from './MovieCard.styled';
+import {
+  MovieContainer,
+  MovieImage,
+  MovieTitle,
+  MovieDesc,
+  MovieSpan,
+} from './MovieCard.styled';
 
 export const MovieCard = ({
   data: {
@@ -25,7 +31,9 @@ export const MovieCard = ({
       </div>
       <div>
         <MovieTitle>{title || name}</MovieTitle>
-        <MovieDesc>Release data : { release_date?.slice(0, 4) || 'not found'}</MovieDesc>
+        <MovieDesc>
+          Release data : {release_date?.slice(0, 4) || 'not found'}
+        </MovieDesc>
         <MovieDesc>
           User score :<MovieSpan>{(vote_average * 10).toFixed(1)}%</MovieSpan>
         </MovieDesc>

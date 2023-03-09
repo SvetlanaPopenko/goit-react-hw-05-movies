@@ -24,7 +24,7 @@ export const CastDesc = styled.p`
   text-align: center;
 `;
 export const CastTitle = styled.h2`
-font-size:26px;
+  font-size: 26px;
   padding: 10px;
   color: #cb861e;
   text-align: center;

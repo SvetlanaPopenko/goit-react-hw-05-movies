@@ -19,7 +19,7 @@ const Home = () => {
   useEffect(() => {
     const controller = new AbortController();
     setIsLoading(true);
-        
+
     const fetchMovie = async page => {
       try {
         const data = await getTrendingMovie(page, {
@@ -47,9 +47,9 @@ const Home = () => {
     return (
       <main>
         <Section title="Trending movies">
-         {!!movies.length && <MoviesGallery movies={movies} />}
+          {!!movies.length && <MoviesGallery movies={movies} />}
         </Section>
-        {!!movies.length && page <= totalPages && (<Button onClick={onLoad} />)}
+        {!!movies.length && page <= totalPages && <Button onClick={onLoad} />}
         {isLoading && <Loader />}
       </main>
     );

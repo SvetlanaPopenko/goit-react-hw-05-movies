@@ -5,9 +5,8 @@ export const ReviewError = styled.p`
   color: #614c02;
 `;
 
-export const ReviewsList=styled.ul`
-    display: flex;
-    flex-direction: column;
-    gap:20px;
-
-`
+export const ReviewsList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;

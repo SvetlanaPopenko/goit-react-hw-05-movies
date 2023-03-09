@@ -4,7 +4,7 @@ import { Loader } from 'components/Loader/Loader';
 import { Section } from 'components/Section/Section';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { CastList,CastError } from './Cast.styled';
+import { CastList, CastError } from './Cast.styled';
 
 const Cast = () => {
   const [isLoading, setIsLoading] = useState(false);

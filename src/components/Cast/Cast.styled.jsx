@@ -6,11 +6,10 @@ export const CastList = styled.ul`
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
-   margin: 0 auto;
-  
+  margin: 0 auto;
+
   padding: 10px 0;
   list-style: none;
-  
 `;
 
 export const CastError = styled.p`

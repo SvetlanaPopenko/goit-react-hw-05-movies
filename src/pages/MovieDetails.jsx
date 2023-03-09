@@ -6,13 +6,13 @@ import { MovieCard } from 'components/MovieCard/MovieCard';
 import { Loader } from 'components/Loader/Loader';
 import PropTypes from 'prop-types';
 import { Container } from 'components/SharedLayout/SharedLayout.styled';
-import { LinkList,Link } from 'components/MovieCard/MovieCard.styled';
+import { LinkList, Link } from 'components/MovieCard/MovieCard.styled';
 
 const MovieDetails = () => {
   const [movieDetail, setMovieDetail] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { movieId } = useParams();
-  const location  = useLocation();
+  const location = useLocation();
   const ref = useRef(location.state?.from ?? '/movies');
 
   useEffect(() => {
