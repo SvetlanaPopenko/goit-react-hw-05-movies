@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
-import { MovieContainer, StyledLink, MovieItem, MovieImage, MovieName } from './MovieGalleryItem.styled';
+import { MovieContainer, StyledLink, MovieItem, MovieImage, MovieName, MovieRelease } from './MovieGalleryItem.styled';
 import PropTypes from 'prop-types';
-import film from '../../images/film.jfif';
+import film from '../../images/film.jpg';
 
 export const MovieGalleryItem = ({
   movie: { title, name, poster_path, release_date, id },
@@ -19,7 +19,7 @@ export const MovieGalleryItem = ({
           />
           <div>
             <MovieName>{title || name}</MovieName>
-            <p>Release data : {release_date?.slice(0, 4) || 'not found'}</p>
+            <MovieRelease>Release data : {release_date?.slice(0, 4) || 'not found'}</MovieRelease>
           </div>
         </MovieItem>
       </StyledLink>
