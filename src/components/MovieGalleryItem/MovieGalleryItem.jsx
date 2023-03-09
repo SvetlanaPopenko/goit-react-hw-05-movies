@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import { MovieContainer, StyledLink, MovieItem, MovieImage, MovieName, MovieRelease } from './MovieGalleryItem.styled';
+import { MovieContainer, StyledLink, MovieItem, MovieImage, MovieName, MovieRelease, MovieInfo } from './MovieGalleryItem.styled';
 import PropTypes from 'prop-types';
 import film from '../../images/film.jpg';
 
@@ -17,10 +17,10 @@ export const MovieGalleryItem = ({
             }
             alt={title || name}
           />
-          <div>
+          <MovieInfo>
             <MovieName>{title || name}</MovieName>
             <MovieRelease>Release data : {release_date?.slice(0, 4) || 'not found'}</MovieRelease>
-          </div>
+          </MovieInfo>
         </MovieItem>
       </StyledLink>
     </MovieContainer>

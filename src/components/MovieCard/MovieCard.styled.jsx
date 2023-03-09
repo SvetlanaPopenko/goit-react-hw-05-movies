@@ -15,8 +15,7 @@ font-size: 24px;
 export const MovieContainer=styled.div`
     display: flex;
     align-items:center;
-    justify-content:space-between;
-    gap:20px;
+     gap:20px;
 `
 
 export const MovieImage = styled.img`

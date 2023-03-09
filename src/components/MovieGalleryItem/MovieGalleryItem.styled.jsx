@@ -22,6 +22,7 @@ export const MovieItem = styled.div`
   display: block;
   border: 1px solid black;
   border-radius: 4px;
+  width: 360px;
    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -54,13 +55,15 @@ font-size:26px;
   margin-top: 8px;
   margin-bottom: 0;
  color: #cb861e;
-word-wrap: break-word;
+height: 80px;
+white-space: pre-wrap;
+
 `;
  export const MovieRelease= styled.p`
   font-size: 28px;
   padding: 10px;
   color: #614c02;
-  font-weight:900px;
+  font-weight:700;
  `
 export const MovieInfo=styled.div`
   padding:10px;
