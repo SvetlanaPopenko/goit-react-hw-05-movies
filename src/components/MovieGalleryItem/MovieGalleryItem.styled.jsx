@@ -30,12 +30,13 @@ export const MovieItem = styled.div`
     transform: scale(1.05);
     cursor: zoom-in;
     border: none;
+     
     }
 `;
 export const MovieImage = styled.img`
   width: 100%;
   object-fit: cover;
-  height:600px;
+ height: 540px;
 `;
 
 export const CardWrapper = styled.div`
@@ -49,8 +50,18 @@ export const CardWrapper = styled.div`
 
 export const MovieName = styled.h2`
 font-size:26px;
-  padding: 4px;
+  padding: 7px;
   margin-top: 8px;
   margin-bottom: 0;
-  color: black;
+ color: #cb861e;
+word-wrap: break-word;
 `;
+ export const MovieRelease= styled.p`
+  font-size: 28px;
+  padding: 10px;
+  color: #614c02;
+  font-weight:900px;
+ `
+export const MovieInfo=styled.div`
+  padding:10px;
+`
